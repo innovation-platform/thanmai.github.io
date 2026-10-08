@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EAF1E6;--surface:#F7FBF4;--ink:#14281D;--muted:#53695B;--line:#C9D8C3;--accent:#1F8A57;--accent-ink:#FFFFFF;--tag:#D8E8D0;--skin:#F0C09A;--roof:#17302A;--floor:#A98259;--grass:#7DB36A;
+  --cw:min(170px,calc((100vw - 5rem)/var(--N,6)));--ch:clamp(170px,22vw,210px);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1A13;--surface:#16271D;--ink:#E3F0E5;--muted:#97B2A1;--line:#29402F;--accent:#6FCF97;--accent-ink:#0E1A13;--tag:#1F3427;--roof:#27493F;--floor:#6B5239;--grass:#2F5A3A}}
+:root[data-theme="dark"]{--bg:#0E1A13;--surface:#16271D;--ink:#E3F0E5;--muted:#97B2A1;--line:#29402F;--accent:#6FCF97;--accent-ink:#0E1A13;--tag:#1F3427;--roof:#27493F;--floor:#6B5239;--grass:#2F5A3A}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg) radial-gradient(circle at 1px 1px,var(--line) 1px,transparent 0) 0 0/26px 26px;color:var(--ink);font:400 1.0625rem/1.6 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;margin:0;line-height:1.05}
+.page{max-width:1140px;margin:0 auto;padding:clamp(1.25rem,4vw,3rem) clamp(1rem,4vw,2.5rem)}
+header{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;align-items:flex-end;margin-bottom:2rem}
+h1{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:800;letter-spacing:-.03em}
+.role{font-weight:600;font-size:1.15rem;margin:.6rem 0 0}
+.role span{color:var(--muted);font-weight:400}
+.hl{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center}
+.btn{display:inline-block;text-decoration:none;font-weight:600;font-size:.95rem;padding:.55rem 1rem;border-radius:8px;border:1.5px solid var(--ink);background:none;color:var(--ink);font-family:inherit;cursor:pointer}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.scene{display:grid;gap:clamp(1.5rem,4vw,2.5rem)}
+.panel>p,.panel>.lead{max-width:64ch}
+.panel{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;padding:clamp(1.25rem,3vw,2rem);min-height:21rem;align-self:start}
+.panel.pop{animation:pop .45s cubic-bezier(.2,.9,.3,1.15)}
+.panel.away{opacity:.25;transform:scale(.98);transition:.2s}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.panel h2{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.4rem}
+.lead{color:var(--muted);margin:0 0 1.25rem}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1.1rem;margin-bottom:1.1rem}
+.cols h3{font-size:.95rem;color:var(--accent);margin-bottom:.2rem}
+.cols p{margin:0;font-size:.98rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:0 0 1.1rem}
+.tags li{background:var(--tag);border-radius:6px;padding:.1rem .6rem;font-size:.85rem;font-weight:500}
+.pl{display:flex;gap:.6rem;flex-wrap:wrap}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;margin:1.2rem 0}
+.fact{border-top:2px solid var(--ink);padding-top:.5rem}
+.fact b{display:block;font:800 1.7rem/1.1 "Bricolage Grotesque",sans-serif}
+.fact span{color:var(--muted);font-size:.9rem}
+.sk{display:grid;gap:.4rem;margin:0}
+.sk div{display:grid;grid-template-columns:7rem 1fr;gap:1rem}
+.sk dt{font-weight:600}.sk dd{margin:0;color:var(--muted)}
+.job{padding:.9rem 0;border-top:1.5px solid var(--line)}
+.job time{color:var(--muted);font-size:.92rem}
+.job h3{font-size:1.15rem}
+.job ul{margin:.4rem 0 0;padding-left:1.1rem}
+.hello{display:flex;gap:1.2rem;align-items:center;margin-bottom:1rem}
+.av{flex:none;width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--roof));color:var(--accent-ink);display:grid;place-items:center;font:800 2rem "Bricolage Grotesque",sans-serif}
+.hello .lead{margin:0}
+.now{display:flex;gap:.55rem;align-items:center;margin:0 0 1rem;font-weight:600}
+.now i{width:.65rem;height:.65rem;border-radius:50%;background:var(--accent);animation:ping 1.6s ease-out infinite}
+.flips{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin-top:1.1rem}
+.flip{all:unset;cursor:pointer;display:block;height:92px;perspective:600px}
+.flip:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:12px}
+.flip>span{position:relative;display:block;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on>span{transform:rotateY(180deg)}
+.flip b,.flip em{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;padding:.7rem .9rem;display:flex;align-items:center;font-style:normal}
+.flip b{background:var(--tag);border:1.5px solid var(--line);font:800 1.15rem "Bricolage Grotesque",sans-serif}
+.flip em{background:var(--accent);color:var(--accent-ink);transform:rotateY(180deg);font-weight:600;font-size:.93rem;line-height:1.3}
+.pgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(1.2rem,3vw,2.2rem);align-items:center}
+.pgrid p{margin:0 0 .5rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin:1rem 0}
+.mock{border-radius:14px;border:1.5px solid var(--line);background:var(--surface);box-shadow:0 26px 50px -22px rgba(20,40,29,.5);overflow:hidden;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s ease-out}
+.mock .bar{display:flex;gap:.35rem;align-items:center;padding:.55rem .75rem;background:var(--tag);border-bottom:1.5px solid var(--line);font-size:.78rem;color:var(--muted)}
+.mock .bar i{width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}
+.mock .bar span{margin-left:.5rem}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(135deg,hsl(calc(140 + var(--hue,0)) 45% 55%),hsl(calc(170 + var(--hue,0)) 50% 28%))}
+.shot img{width:100%;height:100%;object-fit:cover;display:block}
+.shot u{position:absolute;display:block;background:rgba(255,255,255,.85);border-radius:6px}
+.shot small{position:absolute;right:.7rem;bottom:.5rem;color:#fff;font-size:.72rem;opacity:.8}
+.labg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1rem}
+.mini{display:block;text-decoration:none;border:1.5px solid var(--line);border-radius:14px;padding:1.1rem;background:var(--tag);transition:transform .2s,border-color .2s}
+.mini:hover{transform:translateY(-4px);border-color:var(--accent)}
+.mini h3{font-size:1.15rem;margin-bottom:.3rem}.mini p{margin:0;color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.pgrid{grid-template-columns:1fr}}
+/* house */
+.house{position:relative;width:calc(var(--N)*var(--cw));margin:1rem auto 0}
+.slab{height:14px;background:var(--roof);margin:0 -14px;border-radius:3px;box-shadow:0 14px 28px rgba(20,40,29,.2)}
+.rooms{position:relative;display:flex;height:var(--ch)}
+.room{all:unset;box-sizing:border-box;position:relative;overflow:hidden;cursor:pointer;flex:1;min-width:0;border-left:1px solid var(--line);padding:.7rem .6rem;display:flex;gap:.4rem;align-items:flex-start;font:600 .8rem/1.15 "Instrument Sans",sans-serif;color:var(--muted);background:linear-gradient(var(--surface),var(--tag));transition:background .3s,color .2s,box-shadow .3s}
+.room:first-of-type{border-left:0}
+.room::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.28) 50%,transparent 62%)}
+.room:hover{color:var(--ink)}
+.room:focus-visible{outline:3px solid var(--accent);outline-offset:-3px;z-index:3}
+.room[aria-current="step"]{color:var(--ink);background:linear-gradient(color-mix(in srgb,var(--accent) 12%,var(--surface)),color-mix(in srgb,var(--accent) 32%,var(--tag)));box-shadow:inset 0 -4px 0 var(--accent)}
+.room .num{flex:none;display:grid;place-items:center;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:700}
+.room.next .num{animation:ping 1.6s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 65%,transparent)}80%,100%{box-shadow:0 0 0 .6rem transparent}}
+.room .d{position:absolute;right:12%;bottom:16px;width:clamp(26px,3.4vw,40px);fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:.55}
+.deck{height:10px;background:var(--floor);margin:0 -14px}
+.ground{height:6px;background:linear-gradient(90deg,transparent,var(--grass) 10%,var(--grass) 90%,transparent);margin:0 -.9rem;border-radius:99px}
+/* man */
+.man{position:absolute;z-index:2;width:60px;height:100px;pointer-events:none;left:calc(var(--c)*var(--cw) + var(--fx)*var(--cw) - 30px);bottom:0;transform-origin:50% 100%;scale:1.25;transition:left .3s ease-in-out,bottom .3s ease-in-out}
+.man .f{transition:transform .15s}.man.back .f{transform:scaleX(-1)}
+.man svg{display:block;overflow:visible}
+.man svg line{stroke:var(--ink);stroke-width:6;stroke-linecap:round}
+.man .arm line{stroke:var(--accent);stroke-width:6}
+.man .leg line{stroke:var(--skin);stroke-width:6}
+.man g{transform-box:view-box}
+.leg{transform-origin:30px 62px}.arm{transform-origin:30px 42px}
+.walking svg{animation:hop .3s ease-in-out infinite}
+@keyframes hop{50%{transform:translateY(-9px)}}
+.pony{transform-origin:26px 10px}
+.walking .pony{animation:sway .3s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-8deg)}to{transform:rotate(12deg)}}
+.walking .l1,.walking .a2{animation:sw .3s ease-in-out infinite alternate}
+.walking .l2,.walking .a1{animation:sw .3s ease-in-out infinite alternate-reverse}
+@keyframes sw{from{transform:rotate(-28deg)}to{transform:rotate(28deg)}}
+.bubble{position:absolute;bottom:100%;left:10%;margin-bottom:.6rem;white-space:nowrap;background:var(--ink);color:var(--bg);font:600 .85rem "Instrument Sans",sans-serif;padding:.4rem .75rem;border-radius:10px;animation:bob 1.8s ease-in-out infinite;transition:opacity .2s}
+.bubble.gone{opacity:0}
+@keyframes bob{50%{transform:translateY(-5px)}}
+@media (max-width:600px){.room .d,.room .lab{display:none}.man{scale:.8}.room{padding:.5rem .3rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div><h1 id="name"></h1><p class="role" id="role"></p></div>
+  <div class="hl" id="hl"></div>
+</header>
+<div class="scene">
+  <div class="house" id="house">
+    <div class="slab"></div>
+    <div class="rooms" id="rooms">
+    <div class="man" id="man" style="--c:0;--fx:.35">
+      <div class="bubble" id="bub">Click a room and I'll walk there</div>
+      <div class="f"><svg viewBox="0 0 60 100" width="60" height="100" aria-hidden="true">
+        <g class="pony"><path d="M27 9C12 11 4 29 10 46c2 7 7 10 10 8 3-2 0-6-1-10-2-8 1-15 8-19z" fill="#3A2630"/><path d="M23 12C15 18 11 30 13 41" stroke="#6B4856" stroke-width="1.3" stroke-linecap="round" fill="none"/></g>
+        <g class="leg l1"><line x1="27" y1="62" x2="27" y2="90"/><path d="M24.5 89h7.5a2.5 2.5 0 0 1 0 5h-7.5z" fill="#F5F3EE" stroke="var(--ink)" stroke-width=".8"/></g>
+        <g class="leg l2"><line x1="34" y1="62" x2="34" y2="90"/><path d="M31.5 89h7.5a2.5 2.5 0 0 1 0 5h-7.5z" fill="#F5F3EE" stroke="var(--ink)" stroke-width=".8"/></g>
+        <rect x="17" y="52" width="9" height="11" rx="2.8" fill="var(--floor)"/>
+        <path d="M23 38h14l2 26H21z" fill="var(--accent)"/>
+        <path d="M27 38l3 7 3-7z" fill="#fff" opacity=".92"/>
+        <path d="M21 58h18l6 21H15z" fill="var(--roof)"/>
+        <g class="arm a1"><line x1="30" y1="42" x2="30" y2="60"/><circle cx="30" cy="63" r="3" fill="var(--skin)"/></g>
+        <rect x="28" y="32" width="5" height="8" rx="2" fill="var(--skin)"/>
+        <circle cx="32" cy="22" r="13" fill="var(--skin)"/>
+        <circle cx="20.5" cy="24" r="2.5" fill="var(--skin)"/><circle cx="20.5" cy="28.2" r="1.3" fill="#E8B84A"/>
+        <path d="M18.5 24C17 8 30 3 38 6c6 2 8 7 7 13-2-4-5-6-9-6-6-1-12 4-14 11z" fill="#3A2630"/>
+        <path d="M24 9c5-3 11-3 15 0" stroke="#6B4856" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+        <rect x="37" y="7.5" width="5" height="2.2" rx="1.1" fill="#E8B84A" transform="rotate(-20 39.5 8.6)"/>
+        <path d="M34 17q3-2 6-.6" stroke="#3A2630" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+        <ellipse cx="37" cy="22" rx="2.6" ry="3" fill="#fff"/><circle cx="37.8" cy="22.3" r="1.9" fill="#2A1E24"/><circle cx="38.4" cy="21.5" r=".6" fill="#fff"/>
+        <path d="M39.3 19.6l2-1.3" stroke="#2A1E24" stroke-width="1" stroke-linecap="round" fill="none"/>
+        <path d="M42 25q1.2 1.2 0 2.4" stroke="#D99D78" stroke-width="1" stroke-linecap="round" fill="none"/>
+        <circle cx="35.5" cy="27.5" r="2.6" fill="#F08A8A" opacity=".35"/>
+        <path d="M35 30.5q3 2.6 6.2 0" stroke="#B5524A" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+        <g class="arm a2"><line x1="30" y1="42" x2="30" y2="60"/><circle cx="30" cy="63" r="3" fill="var(--skin)"/></g>
+      </svg></div>
+    </div>
+    </div>
+    <div class="deck"></div>
+    <div class="ground"></div>
+  </div>
+  <article class="panel" id="panel" aria-live="polite"></article>
+</div>
+</div>
+<script>
+/* ============ EDIT THIS BLOCK: it is the only part you need to change ============ */
+const D = {
+  name: "Your Name",
+  role: "Software Engineer",
+  pitch: "I build things people actually enjoy using. Walk through the house to see my work.",
+  bio: "I design and build web products from idea to launch. Replace this with two friendly sentences about what you make and what drives you.",
+  now: "Currently building something new at Company Name",
+  chips: ["React", "TypeScript", "Node.js", "Python", "AWS"],
+  facts: [["Fuel", "Filter coffee, black, no exceptions."], ["Offline", "Trail running and film photography."], ["Learning", "Rust, slowly and with snacks."]],
+  projects: [
+    { title: "Project One", kind: "Web app", one: "One line on what it does and who uses it.", stats: [["12k", "active users"], ["40%", "faster loads"], ["3 wks", "idea to launch"]], challenge: "The hard problem you had to solve.", did: "What you built and decided. Say 'I', not 'we'.", stack: ["React", "Node.js", "PostgreSQL"], live: "#", code: "#", image: "" },
+    { title: "Project Two", kind: "Mobile app", one: "A project that shows a different skill.", stats: [["4.8", "store rating"], ["2k", "downloads"], ["99%", "uptime"]], challenge: "What made this one tricky.", did: "Your part and the tools you chose.", stack: ["React Native", "Firebase"], live: "", code: "#", image: "" },
+    { title: "Project Three", kind: "Data tool", one: "A project that shows range.", stats: [["8x", "faster reports"], ["500+", "daily runs"], ["0", "manual steps"]], challenge: "What you were trying to solve.", did: "How you solved it.", stack: ["Python", "FastAPI", "Docker"], live: "#", code: "#", image: "" }
+  ],
+  lab: [["Tiny tool", "A small experiment or weekend build.", "#"], ["Open source fix", "A contribution you are proud of.", "#"], ["Game jam entry", "Something playful you made fast.", "#"]],
+  contact: "Have a role, a project or just a question? I reply quickly.",
+  email: "you@example.com",
+  links: [["GitHub", "https://github.com/yourname"], ["LinkedIn", "https://linkedin.com/in/yourname"], ["Résumé", "#"]]
+};
+/* ================================================================================= */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const reduce = matchMedia("(prefers-reduced-motion:reduce)").matches;
+document.title = D.name + " – " + D.role;
+$("name").textContent = D.name;
+$("role").innerHTML = esc(D.role) + ' <span>' + esc(D.pitch) + '</span>';
+const LK = D.links.map(l => `<a class="btn" href="${esc(l[1])}">${esc(l[0])}</a>`).join("");
+$("hl").innerHTML = LK + '<button class="btn" id="theme" type="button">Switch theme</button>';
+$("theme").onclick = () => { const r = document.documentElement, c = r.dataset.theme || (matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"); r.dataset.theme = c === "dark" ? "light" : "dark"; };
+const IC = {
+  sofa: '<rect x="5" y="6" width="14" height="6" rx="2"/><rect x="2" y="11" width="20" height="6" rx="2"/><path d="M5 17v3M19 17v3"/>',
+  book: '<path d="M4 4h6a3 3 0 0 1 2 1 3 3 0 0 1 2-1h6v15h-6a3 3 0 0 0-2 1 3 3 0 0 0-2-1H4z"/><path d="M12 5v15"/>',
+  code: '<path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/>',
+  flask: '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3M7.5 15h9"/>',
+  plant: '<path d="M12 21v-9M12 12c0-4 3-6 7-6 0 4-3 6-7 6zM12 15c0-3-2-5-6-5 0 3 2 5 6 5zM8 21h8"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>'
+};
+const shot = (p, i) => `<div class="mock"><div class="bar"><i></i><i></i><i></i><span>${esc(p.kind)}</span></div><div class="shot" style="--hue:${i * 35}">${p.image ? `<img src="${esc(p.image)}" alt="Screenshot of ${esc(p.title)}">` : `<u style="left:8%;top:14%;width:46%;height:9%"></u><u style="left:8%;top:30%;width:30%;height:5%;opacity:.6"></u><u style="left:8%;top:48%;width:26%;height:34%"></u><u style="left:38%;top:48%;width:26%;height:34%;opacity:.8"></u><u style="left:68%;top:48%;width:24%;height:34%;opacity:.6"></u><small>Your screenshot here</small>`}</div></div>`;
+const P = (p, i, last) => `<div class="pgrid">${shot(p, i)}<div><h2>${esc(p.title)}</h2><p class="lead">${esc(p.one)}</p>
+  <div class="stats">${p.stats.map(f => `<div class="fact"><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join("")}</div>
+  <p><b>Challenge:</b> ${esc(p.challenge)}</p><p><b>My role:</b> ${esc(p.did)}</p>
+  <ul class="tags">${p.stack.map(t => `<li>${esc(t)}</li>`).join("")}</ul>
+  <div class="pl">${p.live ? `<a class="btn pri" href="${esc(p.live)}">Live demo</a>` : ""}${p.code ? `<a class="btn" href="${esc(p.code)}">Source code</a>` : ""}<button class="btn" data-go="${last}" type="button">Next room</button></div></div></div>`;
+const S = [
+  { label: "Hello", icon: IC.sofa, html: () => `<div class="hello"><div class="av" aria-hidden="true">${esc(D.name[0])}</div><div><h2>Hi, I'm ${esc(D.name.split(" ")[0])}.</h2><p class="lead">${esc(D.bio)}</p></div></div>
+    <p class="now"><i></i>${esc(D.now)}</p><ul class="tags">${D.chips.map(c => `<li>${esc(c)}</li>`).join("")}</ul>
+    <div class="flips">${D.facts.map(f => `<button class="flip" type="button" aria-label="${esc(f[0])}: tap to flip"><span><b>${esc(f[0])}</b><em>${esc(f[1])}</em></span></button>`).join("")}</div>
+    <div class="pl" style="margin-top:1.2rem"><button class="btn pri" data-go="1" type="button">See my work</button></div>` },
+  ...D.projects.map((p, i) => ({ label: p.title, icon: [IC.code, IC.book, IC.plant][i % 3], html: () => P(p, i, i + 2) })),
+  { label: "Lab", icon: IC.flask, html: () => `<h2>The lab</h2><p class="lead">Smaller experiments, side builds and things I made for fun.</p><div class="labg">${D.lab.map(l => `<a class="mini" href="${esc(l[2])}"><h3>${esc(l[0])}</h3><p>${esc(l[1])}</p></a>`).join("")}</div>` },
+  { label: "Contact", icon: IC.mail, html: () => `<h2>Let's talk</h2><p class="lead">${esc(D.contact)}</p><div class="pl"><a class="btn pri" href="mailto:${esc(D.email)}">${esc(D.email)}</a>${LK}</div>` }
+];
+const N = S.length, pos = i => ({ col: i, row: 0 }), fxOf = () => .35;
+document.documentElement.style.setProperty("--N", N);
+$("rooms").insertAdjacentHTML("afterbegin", S.map((s, i) => `<button class="room" data-i="${i}" type="button" aria-label="${esc(s.label)}"><span class="num">${i + 1}</span><span class="lab">${esc(s.label)}</span><svg class="d" viewBox="0 0 24 24" aria-hidden="true">${s.icon}</svg></button>`).join(""));
+const steps = [...document.querySelectorAll(".room")], man = $("man"), panel = $("panel"), sleep = ms => new Promise(r => setTimeout(r, ms));
+let cur = 0, tok = 0, moved = false;
+function show(i) {
+  panel.innerHTML = S[i].html(); panel.classList.remove("away", "pop"); void panel.offsetWidth; panel.classList.add("pop");
+  steps.forEach((b, k) => { b.toggleAttribute("aria-current", k === i); if (k === i) b.setAttribute("aria-current", "step"); b.classList.toggle("next", !moved && k === 1); });
+}
+async function go(t) {
+  t = Math.max(0, Math.min(S.length - 1, t)); const my = ++tok;
+  if (!moved) { moved = true; $("bub").classList.add("gone"); steps.forEach(b => b.classList.remove("next")); }
+  if (t === cur) { show(cur); return; }
+  panel.classList.add("away"); man.classList.add("walking");
+  while (cur !== t && my === tok) {
+    const d = t > cur ? 1 : -1, o = pos(cur).col; cur += d; const p = pos(cur); if (p.col !== o) man.classList.toggle("back", p.col < o); man.style.setProperty("--c", p.col); man.style.setProperty("--fx", fxOf(cur));
+    await sleep(reduce ? 0 : 320);
+  }
+  if (my === tok) { man.classList.remove("walking"); show(cur); }
+}
+steps.forEach(b => b.addEventListener("click", () => go(+b.dataset.i)));
+addEventListener("keydown", e => {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
+  const k = { ArrowRight: 1, ArrowUp: 1, ArrowLeft: -1, ArrowDown: -1 }[e.key]; if (k) { e.preventDefault(); go(cur + k); }
+});
+panel.addEventListener("click", e => {
+  const f = e.target.closest(".flip"); if (f) f.classList.toggle("on");
+  const g = e.target.closest("[data-go]"); if (g) go(+g.dataset.go);
+});
+panel.addEventListener("pointermove", e => {
+  const m = e.target.closest(".mock"); if (!m || reduce) return;
+  const r = m.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+  m.style.setProperty("--rx", (-y * 8) + "deg"); m.style.setProperty("--ry", (x * 10) + "deg");
+});
+panel.addEventListener("pointerout", e => { const m = e.target.closest(".mock"); if (m) { m.style.setProperty("--rx", "0deg"); m.style.setProperty("--ry", "0deg"); } });
+show(0); steps[1].classList.add("next");
+</script>
+</body>
+</html>
